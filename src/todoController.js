@@ -25,7 +25,7 @@ eventsHub.subscribe('sortTodo', (data) => {
         case "addedDate":
             sortData(data , "date")
             break;
-        case "deadline":
+        case "deadlineDate":
             sortData(data , "date")
             break
         case "priority":
@@ -56,6 +56,8 @@ function sortData(data , tag) {
         }
     }
     if (tag === "date") {
+        console.log(todoList);
+        
         if (sortCondition[data]) {
             todoList.sort((a, b ) => new Date(a[data]) - new Date(b[data])) 
         } else {

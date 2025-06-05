@@ -13,7 +13,7 @@ function renderUp () {
     const contentUp = customCreateElement({tag : "div" , height : "300px", display : "flex" ,border : "1px gray solid",borderTop: "0px", flexDirection : "column" , gap : "10px", overflowX : "auto",padding : "5px",paddingTop : "0px", marginBottom : "10px"})
     const titleHead = customCreateElement({tag : "div" , innerHTML : "title"})
     const addedDateHead = customCreateElement({tag : "div" , innerHTML : "addedDate"})
-    const deadlineDateHead = customCreateElement({tag : "div" , innerHTML : "deadline"})
+    const deadlineDateHead = customCreateElement({tag : "div" , innerHTML : "deadlineDate"})
     const priorityHead = customCreateElement({tag : "div" , innerHTML : "priority"})
     const todoDiv = customCreateElement({position : "sticky", top:"0" , zIndex : "100", tag : "div",backgroundColor: "gray" ,display : "grid" , gridTemplateColumns : "3fr 2fr 2fr 2fr 1fr 1fr 1fr" ,gridTemplateRows : "30px" , padding : "3px" , gap : "3px"  })
     
