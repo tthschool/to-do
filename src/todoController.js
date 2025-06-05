@@ -35,13 +35,19 @@ eventsHub.subscribe('sortTodo', (data) => {
         
 })
 eventsHub.subscribe('totoDone', (data) => {
-    console.log(data)
+    let todolist = getTodoList()
+    let todo = todolist.find((t) => t.id === data)
+    todo.priority = Priority.DONE.value
+    setTodoListToLocalStorage(todolist)
+    render()
     
 })
 
 eventsHub.subscribe('deleteTodo', (data) => {
-    console.log(data)
-    
+    let todolist  = getTodoList()
+    todolist = todolist.filter(t => t.id !== data)
+    setTodoListToLocalStorage(todolist)
+    render()
 })
 
 function sortData(data , tag) {

@@ -66,7 +66,6 @@ function renderUp () {
     contentDiv.appendChild(contentUp)
 }
 
-
 function renderDown(){
     const contentDown = customCreateElement({tag : "div" ,width : "700px" , height : "30px" , display : "flex" , justifyItems: "center", justifyContent: "center" })
     const task = customCreateElement({tag : "input" , placeholder : "task",type : "text", id : "task-input"})

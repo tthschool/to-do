@@ -26,9 +26,6 @@ list.push(todo1.transform(), todo2.transform(), todo3.transform(), todo4.transfo
     todo6.transform(), todo7.transform(), todo8.transform(), todo9.transform(), todo11.transform(), todo12.transform(), todo13.transform(), todo14.transform(), todo15.transform()
 )
 
-// setTodoListToLocalStorage(list)
-//add sort 
-
 if (localStorage.getItem('sortCondition') === null) {
     const sortCondition = {
         title: true,
@@ -38,9 +35,3 @@ if (localStorage.getItem('sortCondition') === null) {
     }
     localStorage.setItem('sortCondition', JSON.stringify(sortCondition))
 }
-
-
-let b = Object.values(Priority)
-let o = b.find((x) => x.value === "LOW").key
-
-console.log(o);
