@@ -2,7 +2,7 @@
 import { eventsHub } from "./eventsHub.js";
 import { Priority } from "./priority.js";
 import render from "./renderTodoList.js";
-import { getSortCondition, getTodoList, setSortCondition, setTodoListToLocalStorage } from "./todo.js";
+import { getSortCondition, getTodoList, setSortCondition, setTodoListToLocalStorage, Todo } from "./todo.js";
 
 
 eventsHub.subscribe('updateTodo', (data) => {
@@ -62,8 +62,6 @@ function sortData(data , tag) {
         }
     }
     if (tag === "date") {
-        console.log(todoList);
-        
         if (sortCondition[data]) {
             todoList.sort((a, b ) => new Date(a[data]) - new Date(b[data])) 
         } else {
@@ -84,3 +82,12 @@ function sortData(data , tag) {
     render()
 
 }
+
+eventsHub.subscribe('createTask' , (data) => {
+    let todolist = getTodoList()
+
+    let todo = new Todo(data.task , data.addedDate , data.deadlineDate , data.priority)
+    todolist.push(todo.transform())
+    setTodoListToLocalStorage(todolist)
+    render()
+})

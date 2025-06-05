@@ -81,7 +81,7 @@ function renderDown(){
         priority.appendChild(option)
     })
     const saveBtn = customCreateElement({tag : "button" , innerHTML: "save"})
-    saveBtn.addEventListener('createTask' , () => createTask({task : task , addedDate : addedDate , deadlineDate : deadlineDate , priority : priority}))
+    saveBtn.addEventListener('click' , () => createTask({task : task.value , addedDate : addedDate.value , deadlineDate : deadlineDate.value , priority : priority.value}))
     contentDown.appendChild(task)
     contentDown.appendChild(addedDate)
     contentDown.appendChild(deadlineDate)
@@ -134,4 +134,8 @@ function priorityColor(priority) {
         default:
             return "#ffffff"; 
     }
+}
+
+function createTask(data) {
+    eventsHub.publish('createTask' , data)
 }
