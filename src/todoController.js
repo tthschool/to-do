@@ -1,5 +1,6 @@
 
 import { eventsHub } from "./eventsHub.js";
+import { Priority } from "./priority.js";
 import render from "./renderTodoList.js";
 import { getSortCondition, getTodoList, setSortCondition, setTodoListToLocalStorage } from "./todo.js";
 
@@ -62,8 +63,12 @@ function sortData(data , tag) {
         }
     }
     if (tag === "priority") {
-        console.log("dasd");
-        
+        let arrayPriority = Object.values(Priority)
+        if (sortCondition[data]) {
+            todoList.sort((a,b) => (arrayPriority.find(x => x.value === a.priority).key) - (arrayPriority.find(x => x.value === b.priority).key) )
+        } else {
+            todoList.sort((a,b) => (arrayPriority.find(x => x.value === b.priority).key) - (arrayPriority.find(x => x.value === a.priority).key) )
+        }
     }
     sortCondition[data] = !sortCondition[data]
     setSortCondition(sortCondition)

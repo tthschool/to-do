@@ -1,5 +1,5 @@
 import { eventsHub } from "./eventsHub"
-import { Priority } from "./priority"
+import { Priority } from "./priority.js"
 import { getTodoList } from "./todo"
 const contentDiv = document.querySelector('#content')
 export default function render (){
@@ -37,7 +37,7 @@ function renderUp () {
         const addedDate = customCreateElement({tag : "input" , value : todo.addedDate , type : "date" , id :`addedDate${todo.id}`})
         const deadlineDate = customCreateElement({tag : "input" , value : todo.deadlineDate, type : "date" , id : `deadlineDate${todo.id}`})
         const priority = customCreateElement({tag : "select" , id : todo.id })
-        const listPriority =  [Priority.HIGH , Priority.MEDIUM , Priority.LOW , Priority.DONE]
+        const listPriority =  [Priority.HIGH.value , Priority.MEDIUM.value, Priority.LOW.value , Priority.DONE.value]
         listPriority.forEach(p => {
             const option = customCreateElement({tag : "option" , value : p , innerHTML : p})
             priority.appendChild(option)
@@ -76,7 +76,7 @@ function renderDown(){
 
     const priority = customCreateElement({tag : "select" , id : "priority-input"})
 
-    const listPriority =  [Priority.HIGH , Priority.MEDIUM , Priority.LOW , Priority.DONE]
+    const listPriority =  [Priority.HIGH.value , Priority.MEDIUM.value , Priority.LOW.value, Priority.DONE.value]
     listPriority.forEach(p => {
         const option = customCreateElement({tag : "option" , value : p , innerHTML : p})
         priority.appendChild(option)
@@ -124,13 +124,13 @@ function deleteTodo(id) {
 
 function priorityColor(priority) {
     switch (priority) {
-        case Priority.HIGH:
+        case Priority.HIGH.value:
             return "#f8d7da";
-        case Priority.MEDIUM:
+        case Priority.MEDIUM.value:
             return "#fff3cd";
-        case Priority.LOW:
+        case Priority.LOW.value:
             return "#d4edda";
-        case Priority.DONE:
+        case Priority.DONE.value:
             return "#d1ecf1";
         default:
             return "#ffffff"; 
