@@ -47,4 +47,22 @@ class Todo {
     }
 }
 
-export {Todo}
+function getTodoList(){
+    const todoList = localStorage.getItem('todolist') ? JSON.parse(localStorage.getItem('todolist')) : []
+    return todoList
+}
+
+function setTodoListToLocalStorage(todoList) {
+    localStorage.setItem('todolist' ,JSON.stringify(todoList))
+}
+
+function getSortCondition() {
+    const sortCondition = localStorage.getItem('sortCondition') ? JSON.parse(localStorage.getItem('sortCondition')) : []
+    return sortCondition
+}
+
+function setSortCondition(sortCondition) {
+    localStorage.setItem('sortCondition' ,JSON.stringify(sortCondition))
+}
+
+export {Todo , getTodoList, setTodoListToLocalStorage, getSortCondition , setSortCondition}
